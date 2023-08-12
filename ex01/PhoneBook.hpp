@@ -8,11 +8,10 @@ class	Contact
 	private:
 	std::string	_firstName;
 	int			_index;
-	// std::string	_lastName;
-	// std::string	_nickname;
-	// std::string	_phoneNumber;
-	// std::string	_darkestSecret;
-	// int			_index;
+	std::string	_lastName;
+	std::string	_nickname;
+	std::string	_phoneNumber;
+	std::string	_darkestSecret;
 	std::string _inputContact(std::string str);
 	void	_putTenStr(size_t t_len,std::string str);
 

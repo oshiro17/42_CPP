@@ -4,17 +4,31 @@ int main()
 {
 	PhoneBook book;
 	std::string ia;
-    while(ia != "EXIT\0")
-    {
-        std::cout << "コマンドをにゅうりょくしてくだしゃい :";
-		std::cin >> ia;
+	while (1)
+	{
+		std::cout << "Enter a Command : ";
+		if(!(std::cout >> ia))
+		{
+			if (std::cin.eof())
+			{
+				std::cout << "Exiting the program." << std::endl;
+				break;
+			}
+			else
+			{
+				std::cin.clear();
+				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+				continue;
+			}
+		}
 		std::cout<<"\n";
 		if (ia == "SEARCH\0")
 			book.search();
 		else if(ia == "ADD\0")
 			book.add();
-		ia = "\0";
-		std::cin.clear(); 
-    }
+		else if(ia == "EXIT\0")
+			break;
+		// std::cin.clear(); 
+	}
 	return(0);
 }
