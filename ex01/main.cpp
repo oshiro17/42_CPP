@@ -7,7 +7,7 @@ int main()
 	while (1)
 	{
 		std::cout << "Enter a Command : ";
-		if(!(std::cout >> ia))
+		if(!(std::cin >> ia))
 		{
 			if (std::cin.eof())
 			{
@@ -21,14 +21,17 @@ int main()
 				continue;
 			}
 		}
-		std::cout<<"\n";
+		std::cout << std::endl;
 		if (ia == "SEARCH\0")
 			book.search();
 		else if(ia == "ADD\0")
 			book.add();
 		else if(ia == "EXIT\0")
+		{
+			std::cout << "good bye( ≖ଳ≖)ㄑƺねႫ~" << std::endl;
 			break;
-		// std::cin.clear(); 
+		}
+		// std::cin.clear();
 	}
 	return(0);
 }
