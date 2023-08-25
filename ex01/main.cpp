@@ -7,8 +7,9 @@ int main()
 	while (1)
 	{
 		std::cout << "Enter a Command : ";
-		if(!(std::cin >> ia))
+		if(!(std::getline(std::cin, ia)))
 		{
+			exit(1);
 			if (std::cin.eof())
 			{
 				std::cout << "Exiting the program." << std::endl;
