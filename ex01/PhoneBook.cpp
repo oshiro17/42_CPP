@@ -55,10 +55,10 @@ void	Contact::putContact(void)
 	this->_putTenStr(12, this->_firstName);
 	this->_putTenStr(12, this->_lastName);
 	this->_putTenStr(10, this->_nickname);
-	this->_putTenStr(10, this->_phoneNumber);
-	this->_putTenStr(14, this->_darkestSecret);
+	this->_putTenStr(14, this->_phoneNumber);
+	this->_putTenStr(18, this->_darkestSecret);
 	std::cout<<"\n";
-	std::cout << "------------------------------------------------------------------------------\n";
+	std::cout << "---------------------------------------------------------------------------------\n";
 
 }
 
@@ -66,7 +66,7 @@ std::string Contact::_inputContact(std::string str)
 {
 	std::string ia;
 	std::cout<<str;
-	std::cin >> ia;
+	std::getline(std::cin,ia);
 	std::cout<<"\n";
 	return(ia);
 }
@@ -86,10 +86,10 @@ void	Contact::setContact(int index)
 {	
 	this->_index = index + 1;
 	this->_firstName = this->_inputContact("1 first name : ");
-	this->_lastName = this->_inputContact("2 last name :");
-	this->_nickname = this->_inputContact("3 nickname :");
-	this->_phoneNumber = this->_inputContact("4 phone number :");
-	this->_darkestSecret = this->_inputContact("5 darkest secret :");
+	this->_lastName = this->_inputContact("2 last name : ");
+	this->_nickname = this->_inputContact("3 nickname : ");
+	this->_phoneNumber = this->_inputContact("4 phone number : ");
+	this->_darkestSecret = this->_inputContact("5 darkest secret : ");
 	std::cin.clear(); 
 }
 void	PhoneBook::add()
@@ -105,8 +105,9 @@ void	PhoneBook::add()
 }	
 void	PhoneBook::search()
 {
-	int i = 0;
-	int index = 0;
+	int			i = 0;
+	std::string	input;
+	int			index = 0;
 	if (this->_c_num == 0)
 	{
 		std::cout<<"The Phone Book is empty\n\n";
@@ -114,9 +115,9 @@ void	PhoneBook::search()
 	}
 	else
 	{
-		std::cout << "\n------------------------------------------------------------------------------\n";
-		std::cout << "| index | first name | last  name | nickname | phone number | darkest sercret |\n";
-		std::cout << "\n------------------------------------------------------------------------------\n";
+		std::cout << "\n--------------------------------------------------------------------------------\n";
+		std::cout << "| index | first name | last  name | nickname | phone number | darkest  sercret |\n";
+		std::cout << "---------------------------------------------------------------------------------\n";
 		while (i < this->_c_num)
 		{
 			this->_contact[i].putContact();
@@ -124,11 +125,13 @@ void	PhoneBook::search()
 		}
 	}
 	std::cout << "\nSelect the index : " ;
-	std::cin >> index;
+	std::cout<<std::getline(std::cin, input);
 	std::cout<<"\n";
+	index = std::stoi(input);
 	if (index > 8 || index <= 0 ||index > this->_c_num)
-		std::cout<<"wrong input(ꐦ°᷄д°᷅)\n";
+		std::cout<<"wrong inputt(ꐦ°᷄д°᷅)\n";
 	else
 		this->_contact[index - 1].putContactInfo();
+	std::cin.clear();
 	return;
 }
