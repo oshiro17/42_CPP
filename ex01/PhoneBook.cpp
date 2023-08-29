@@ -125,11 +125,12 @@ void	PhoneBook::search()
 		}
 	}
 	std::cout << "\nSelect the index : " ;
-	std::cout<<std::getline(std::cin, input);
+	std::getline(std::cin, input);
 	std::cout<<"\n";
-	index = std::stoi(input);
-	if (index > 8 || index <= 0 ||index > this->_c_num)
-		std::cout<<"wrong inputt(ꐦ°᷄д°᷅)\n";
+	// 数字以外の値が入力された場合の処理
+    std::istringstream iss(input);
+    if (!(iss >> index) || iss.peek() != EOF ||index > 8 || index <= 0 || index > this->_c_num)
+        std::cout << "wrong input. Please enter a valid index.\n";
 	else
 		this->_contact[index - 1].putContactInfo();
 	std::cin.clear();
