@@ -1,15 +1,15 @@
 #include "Zombie.hpp"
 
-void	randomChump(std::string name)
-{
-	Zombie	zombi(name);
-	zombi.announce();
-}
+// void	randomChump(std::string name)
+// {
+// 	Zombie	zombi(name);
+// 	zombi.announce();
+// }
 
-Zombie	*newZombie(std::string name)
-{
-	return (new Zombie(name));
-}
+// Zombie	*newZombie(std::string name)
+// {
+// 	return (new Zombie(name));
+// }
 
 int	main(void)
 {
