@@ -21,7 +21,6 @@ void	Sed::replace(std::string s1, std::string s2)
 		size_t	start = 0;
 		size_t	found = 0;
 		std::getline(ifs,content,'\0');
-		std::cout<<content;
 		found = content.find(s1);
 		while (found != std::string::npos)
 		{
@@ -31,7 +30,10 @@ void	Sed::replace(std::string s1, std::string s2)
 			found = content.find(s1, start);
 		}
 		result = result + content.substr(start);
+		std::ofstream	ofs(this->_outFile);
+		ofs << result;
+		ofs.close();
+		ifs.close();
 	}
-	std::cout << result << std::endl;
 	return;
 }
