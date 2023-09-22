@@ -29,13 +29,33 @@ void	Harl::error( void ) {
 	std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl;
 	std::cout << std::endl;
 }
+
 void Harl::complain(std::string level)
 {
 	std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	void (Harl::*f[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 	int i;
-	for(i = 0; levels[i] != level; i++)
+	for(i = 0; 4 > i; i++)
 	{
+		if (levels[i] == level)
+			break;
 	}
-	(this->*f[i])();
+	switch (i)
+	{
+	case 0:
+		this->debug();
+		break;
+	case 1:
+		this->info();
+		break;
+	case 2:
+		this->warning();
+		break;
+	case 3:
+		this->error();
+		break;
+	
+	default:
+		std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+		break;
+	}
 }
