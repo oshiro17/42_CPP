@@ -32,20 +32,19 @@ void	Contact::_putTenStr(size_t t_len, std::string str)
 {
 	std::string value;
 	size_t sp;
+
 	if (str.length() > 10)
 	{
 		value = str.substr(0,9) + ".";
-		sp = (t_len - 10) / 2;
+		sp = t_len - 10;
 	}
 	else
 	{
 		value = str;
-		sp = (t_len - value.length()) / 2;
+		sp = t_len - value.length();
 	}
 	while (sp--)
-		value = " " + value + " ";
-	if (str.length() <= 10 && str.length() % 2)
-		value = value + " ";
+		value = " " + value;
 	std::cout<<value<<"|";
 }
 
@@ -65,9 +64,14 @@ void	Contact::putContact(void)
 std::string Contact::_inputContact(std::string str)
 {
 	std::string ia;
-	std::cout<<str;
-	if(!(std::getline(std::cin,ia)))
-		exit(1);
+	while (1)
+	{
+		std::cout<<str;
+		if(!(std::getline(std::cin,ia)))
+			exit(1);
+		if (ia != "")
+			break;
+	}
 	std::cout<<"\n";
 	return(ia);
 }
@@ -95,12 +99,14 @@ void	Contact::setContact(int index)
 }
 void	PhoneBook::add()
 {
+	int index = 0;
+	index = this->_c_num;
 	if (this->_c_num >= 8)
 	{
 		std::cout<<"Phonebook is FULL（ > <）\n";
-		return;
+		index = _c_num % 8;
 	}
-	this->_contact[this->_c_num].setContact(this->_c_num);
+	this->_contact[index].setContact(this->_c_num);
 
 	this->_c_num++;
 }	
@@ -119,7 +125,7 @@ void	PhoneBook::search()
 		std::cout << "\n--------------------------------------------------------------------------------\n";
 		std::cout << "| index | first name | last  name | nickname | phone number | darkest  sercret |\n";
 		std::cout << "---------------------------------------------------------------------------------\n";
-		while (i < this->_c_num)
+		while (i < 8 && (i < this->_c_num))
 		{
 			this->_contact[i].putContact();
 			i++;
