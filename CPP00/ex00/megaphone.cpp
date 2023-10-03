@@ -1,23 +1,27 @@
 #include <iostream>
-// using namespace std;
+#include <locale>
 
-std::string ToupperStr(char *str){
-	for (size_t i = 0; str[i];i++)
-	{
-		str[i]=toupper(str[i]);
-	}
-	return(str);
+std::string str_toupper(std::string str)
+{
+	std::locale l = std::locale::classic();
+	for(int i = 0; str[i]; i++)
+		str[i] = std::toupper(str[i], l);
+	return (str);
+
 }
 
 int main(int argc, char **argv) {
+	std::string str;
 	if (argc == 1)
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
 	else
 	{
 		for (size_t i = 1; argv[i]; i++)
 		{
-			std::cout << ToupperStr(argv[i]);
-			std::cout << " ";
+			str = argv[i];
+			std::cout << str_toupper(argv[i]);
+			// if (argc != 1 && argv[i + 1])
+				// std::cout << " ";
 		}
 		std::cout << std::endl;
 	}
