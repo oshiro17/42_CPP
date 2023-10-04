@@ -1,4 +1,5 @@
 #include "Fixed.hpp"
+
 Fixed& Fixed::operator=(const Fixed& obj) 
 {
 	std::cout << "Copy assignment operator called" << std::endl;
