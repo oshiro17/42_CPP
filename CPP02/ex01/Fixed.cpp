@@ -1,4 +1,32 @@
 #include "Fixed.hpp"
+#include <math.h>
+
+Fixed::Fixed()
+{
+	std::cout << "Default constructor called" << std::endl;
+	this->value = 0;
+}
+
+Fixed::~Fixed()
+{
+	std::cout << "Destructor called" << std::endl;
+}
+
+Fixed::Fixed(const int n)
+{
+	this->value = n << bits;
+}
+
+Fixed::Fixed(const float n)
+{
+	this->value = roundf(n * 256);
+	//四捨五入か切り捨てか検証する
+}
+Fixed::Fixed(const Fixed &obj)
+{
+	std::cout << "Copy constructor called" << std::endl;
+	this->value = obj.getRawBits();
+}
 
 Fixed& Fixed::operator=(const Fixed& obj) 
 {
@@ -9,27 +37,20 @@ Fixed& Fixed::operator=(const Fixed& obj)
 	}
 	return (*this);
 }
-
-Fixed::Fixed()
+std::ostream&	operator<<(std::ostream& stream, const Fixed& fixed)
 {
-	std::cout << "Default constructor called" << std::endl;
-	this->value = 0;
+	stream << fixed.toFloat();
+	return (stream);
 }
 
-Fixed::Fixed(int n)
+float	Fixed::toFloat(void) const
 {
-	this->value = n << bits;
+	return ((float)this->value / 256);
 }
 
-Fixed::Fixed(const Fixed &obj)
+int		Fixed::toInt(void) const
 {
-	std::cout << "Copy constructor called" << std::endl;
-	this->value = obj.getRawBits();
-}
-
-Fixed::~Fixed()
-{
-	std::cout << "Destructor called" << std::endl;
+	return (this->value >> 8);
 }
 
 int		Fixed::getRawBits(void) const
