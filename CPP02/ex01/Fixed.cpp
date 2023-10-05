@@ -14,7 +14,7 @@ Fixed::~Fixed()
 
 Fixed::Fixed(const int n)
 {
-	this->value = n << bits;
+	this->value = n << this->bits;
 }
 
 Fixed::Fixed(const float n)
@@ -50,7 +50,7 @@ float	Fixed::toFloat(void) const
 
 int		Fixed::toInt(void) const
 {
-	return (this->value >> 8);
+	return (this->value >> this->bits);
 }
 
 int		Fixed::getRawBits(void) const

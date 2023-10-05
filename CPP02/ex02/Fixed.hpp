@@ -16,9 +16,13 @@ public:
 	Fixed(const int n);
 	Fixed(const float num);
 	~Fixed();
-	Fixed&	Fixed::operator++();
-	Fixed& operator=(const Fixed& obj);
+	Fixed	operator++(int);
+	Fixed&	operator++();
+	Fixed	operator+(const Fixed &ob);
+	Fixed	operator*(const Fixed&ob);
+	Fixed&	operator=(const Fixed& ob);
 	bool	operator!=(const Fixed &ob);
+	bool	operator==(const Fixed &ob);
 	bool	operator>(const Fixed &ob);
 	bool	operator>=(const Fixed &ob);
 	bool	operator<=(const Fixed &ob);
@@ -26,6 +30,6 @@ public:
 	Fixed(const Fixed& obj);
 };
 
-std::ostream& operator<<(std::ostream& stream, const Fixed& ob);
+std::ostream& operator<<(std::ostream& stream, const Fixed& fixed);
 
 #endif
