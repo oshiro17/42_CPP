@@ -106,12 +106,12 @@ bool	Fixed::operator<(const Fixed& obj)
 	return (this->value < obj.value);
 }
 
-bool	Fixed::operator<=(const Fixed& obj)
+bool	Fixed::operator<=(const Fixed& obj) const
 {
 	return (this->value <= obj.value);
 }
 
-bool	Fixed::operator>=(const Fixed& obj)
+bool	Fixed::operator>=(const Fixed& obj)const
 {
 	return (this->value >= obj.value);
 }
@@ -131,14 +131,21 @@ Fixed Fixed::operator*(const Fixed&ob)
 	return (ret);
 }
 
-Fixed Fixed::operator*(const Fixed&ob)
+Fixed Fixed::operator/(const Fixed&ob)
 {
 	Fixed ret;
 	float t_val = this->toFloat();
 	float ob_val = ob.toFloat();
 	float value = t_val / ob_val;
 	ret.value = roundf(value * 256);
-	return (ret)
+	return (ret);
+}
+
+Fixed Fixed::operator-(const Fixed&ob)
+{
+	Fixed ret;
+	ret.value =this->value - ob.value;
+	return (ret);
 }
 Fixed Fixed::operator+(const Fixed&ob)
 {
@@ -147,3 +154,36 @@ Fixed Fixed::operator+(const Fixed&ob)
 	return (ret);
 }
 
+// static Fixed&		Fixed::max(Fixed& fixed1, Fixed& fixed2)
+// {
+// 	// if (fixed1 == fixed2)
+// 	//
+// 	if (fixed1 >= fixed2)
+// 		return(fixed1);
+// 	return(fixed2);
+// }
+
+// static const Fixed&		Fixed::max(const Fixed& fixed1, const Fixed& fixed2)
+// {
+// 	// if (fixed1 == fixed2)
+// 	//
+// 	if (fixed1 >= fixed2)
+// 		return(fixed1);
+// 	return(fixed2);
+// }
+// static Fixed&		Fixed::min(Fixed& fixed1, Fixed& fixed2)
+// {
+// 	// if (fixed1 == fixed2)
+// 	//
+// 	if (fixed1 <= fixed2)
+// 		return(fixed1);
+// 	return(fixed2);
+// }
+// static const Fixed&		Fixed::min(const Fixed& fixed1, const Fixed& fixed2)
+// {
+// 	// if (fixed1 == fixed2)
+// 	//
+// 	if (fixed1 <= fixed2)
+// 		return(fixed1);
+// 	return(fixed2);
+// }
