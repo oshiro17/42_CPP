@@ -131,6 +131,15 @@ Fixed Fixed::operator*(const Fixed&ob)
 	return (ret);
 }
 
+Fixed Fixed::operator*(const Fixed&ob)
+{
+	Fixed ret;
+	float t_val = this->toFloat();
+	float ob_val = ob.toFloat();
+	float value = t_val / ob_val;
+	ret.value = roundf(value * 256);
+	return (ret)
+}
 Fixed Fixed::operator+(const Fixed&ob)
 {
 	Fixed ret;
