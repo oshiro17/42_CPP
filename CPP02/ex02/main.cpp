@@ -3,10 +3,10 @@
 #include <iostream>
 
 int main( void ) {
-    // Fixed a(1);
-    // Fixed b(1);
+    Fixed a(1);
+    Fixed b(1);
 
-    
+   a = b;
     // std::cout<< a <<std::endl;
     // std::cout<< b <<std::endl;
     // if (a > b)
