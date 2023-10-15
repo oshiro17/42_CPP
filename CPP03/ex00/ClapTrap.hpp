@@ -4,13 +4,13 @@
 
 class	ClapTrap
 {
-private:
+protected:
 	std::string		_name;
 	unsigned int	_hitPoint;
 	unsigned int	_energyPoint;
 	unsigned int	_attackDamage;
 public:
-	ClapTrap(std::string name = "NO_NAME_HOGE");
+	ClapTrap(std::string name);
 	ClapTrap(const ClapTrap& obj);
 	~ClapTrap();
 	void attack(const std::string& target);
@@ -19,4 +19,9 @@ public:
 	ClapTrap& operator=(const ClapTrap& obj);
 	void showStatus();
 };
-#endif
+class ScavTrap : public ClapTrap
+{
+public:
+	ScavTrap(std::string name);
+};
+#endif;
