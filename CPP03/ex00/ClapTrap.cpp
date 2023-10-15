@@ -6,6 +6,8 @@ ClapTrap::ClapTrap(std::string name)
 		this->_name = "NO_NAME_HOGE";
 	else
 		this->_name = name;
+	std::cout << this->_name <<" : Constructor of ClapTrap called"<<std::endl;
+	if (name.empty())
 	this->_hitPoint = 10;
 	this-> _energyPoint = 10;
 	this->_attackDamage = 0;
@@ -13,21 +15,24 @@ ClapTrap::ClapTrap(std::string name)
 
 ClapTrap::ClapTrap(const ClapTrap& obj)
 {
+	std::cout << this->_name <<" : Copy constructor of ClapTrap called"<<std::endl;
 	*this = obj;
 	return;
 }
 
+ClapTrap::~ClapTrap(void)
+{
+	std::cout << this->_name <<" : Destroying the ClapTrap " << std::endl;
+}
+
 ClapTrap& ClapTrap::operator=(const ClapTrap& obj)
 {
+	std::cout<<"Copy assignment operator of ClapTrap called"<<std::endl;
 	this->_name = obj._name;
 	this->_hitPoint = obj._hitPoint;
 	this->_energyPoint =obj._energyPoint;
 	this->_energyPoint = obj._attackDamage;
 	return (*this);
-}
-
-ClapTrap::~ClapTrap()
-{
 }
 
 void ClapTrap::attack(const std::string& target)
