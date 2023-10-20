@@ -14,7 +14,7 @@ void ScavTrap::guardGate()
 {
 	std::cout << "ScavTrap " << this->_name << " is now in Gate keeper mode. Guarding the gate!" << std::endl;
 }
-ScavTrap::ScavTrap(const ScavTrap& obj)
+ScavTrap::ScavTrap(const ScavTrap& obj):ClapTrap(obj)
 {
 	std::cout << this->_name <<" : Copy constructor of ClapTrap called"<<std::endl;
 	*this = obj;
