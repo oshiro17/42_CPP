@@ -6,7 +6,7 @@
 #    By: panti <panti@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/23 11:10:16 by panti             #+#    #+#              #
-#    Updated: 2023/10/15 20:41:50 by panti            ###   ########.fr        #
+#    Updated: 2023/10/20 13:26:30 by panti            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME	= a.out
 CC		= c++
 FLAGS	= -Wall -Wextra -Werror -std=c++98
 RM		= rm -rf
-FILES	= main ClapTrap ScavTrap
+FILES	= main ClapTrap ScavTrap FragTrap
 OBJS	= $(FILES:=.o)
 .PHONY: all clean re
 
