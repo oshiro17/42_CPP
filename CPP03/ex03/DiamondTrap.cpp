@@ -1,7 +1,7 @@
-#include "ScavTrap.hpp"
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
+#include "DiamondTrap.hpp"
+DiamondTrap::DiamondTrap(std::string name) : ScavTrap(name),FragTrap(name)
 {
-	std::cout << this->_name <<" : Constructor of ScavTrap called"<<std::endl;
+	std::cout << this->_name <<" : DiamondTrap of ScavTrap called"<<std::endl;
 	this->_hitPoint = 100;
 	this->_energyPoint = 50;
 	this->_attackDamage = 20;
