@@ -6,7 +6,7 @@
 int	main(void)
 {
 	// ScavTrap a("A");
-	DiamondTrap b("A");
+	DiamondTrap b();
 
 	// a.attack("B");
 	b.takeDamage(20000);

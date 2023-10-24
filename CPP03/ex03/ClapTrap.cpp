@@ -1,7 +1,6 @@
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(std::string name)
-{
 	if (name.empty())
 		this->_name = "NO_NAME_HOGE";
 	else
