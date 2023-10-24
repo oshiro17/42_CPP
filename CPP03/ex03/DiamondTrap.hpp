@@ -4,6 +4,8 @@
 #include "ScavTrap.hpp"
 class DiamondTrap : public FragTrap, public ScavTrap
 {
+private:
+	std::string _name;
 public:
 	DiamondTrap(std::string name);
 	DiamondTrap(const DiamondTrap& obj);

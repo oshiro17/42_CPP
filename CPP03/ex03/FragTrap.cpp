@@ -39,43 +39,43 @@ FragTrap& FragTrap::operator=(const FragTrap& obj)
 	return (*this);
 }
 
-void FragTrap::attack(const std::string& target)
-{
-	if (this->_hitPoint == 0 || this->_energyPoint == 0)
-	{
-		std::cout<<this->_name<<" is died!"<<std::endl;
-		return;
-	}
-	this->_energyPoint += -1;
-	std::cout<<"FragTrap " <<this->_name<< " attacks " << target;
-	std::cout<<" causing " <<this->_attackDamage<<" points of damage!"<<std::endl;	
-}
+// void FragTrap::attack(const std::string& target)
+// {
+// 	if (this->_hitPoint == 0 || this->_energyPoint == 0)
+// 	{
+// 		std::cout<<this->_name<<" is died!"<<std::endl;
+// 		return;
+// 	}
+// 	this->_energyPoint += -1;
+// 	std::cout<<"FragTrap " <<this->_name<< " attacks " << target;
+// 	std::cout<<" causing " <<this->_attackDamage<<" points of damage!"<<std::endl;	
+// }
 
-void FragTrap::takeDamage(unsigned int amount)
-{
-	if (this->_hitPoint == 0 || this->_energyPoint == 0)
-	{
-		std::cout<<this->_name<<" is died!"<<std::endl;
-		return;
-	}
-	if (amount >= this->_hitPoint)
-	{	
-		this->_hitPoint = 0;
-		std::cout<<"FragTrap "<< this->_name <<" is died!"<<std::endl;
-		return;
-	}
-	this->_hitPoint = this->_hitPoint - amount;
-	std::cout<<"FragTrap "<< this->_name <<" take damage and loses "<<amount<<" hit points!" << std::endl;	
+// void FragTrap::takeDamage(unsigned int amount)
+// {
+// 	if (this->_hitPoint == 0 || this->_energyPoint == 0)
+// 	{
+// 		std::cout<<this->_name<<" is died!"<<std::endl;
+// 		return;
+// 	}
+// 	if (amount >= this->_hitPoint)
+// 	{	
+// 		this->_hitPoint = 0;
+// 		std::cout<<"FragTrap "<< this->_name <<" is died!"<<std::endl;
+// 		return;
+// 	}
+// 	this->_hitPoint = this->_hitPoint - amount;
+// 	std::cout<<"FragTrap "<< this->_name <<" take damage and loses "<<amount<<" hit points!" << std::endl;	
 
-}
+// }
 
-void FragTrap::beRepaired(unsigned int amount)
-{
-	if (this->_hitPoint == 0 || this->_energyPoint == 0)
-	{
-		std::cout<<this->_name<<" is died!"<<std::endl;
-		return;
-	}
-	this->_hitPoint +=	amount;
-	std::cout << "FragTrap" << this->_name<< " is repaired and gets " << amount<< " hit points!" << std::endl;
-}
+// void FragTrap::beRepaired(unsigned int amount)
+// {
+// 	if (this->_hitPoint == 0 || this->_energyPoint == 0)
+// 	{
+// 		std::cout<<this->_name<<" is died!"<<std::endl;
+// 		return;
+// 	}
+// 	this->_hitPoint +=	amount;
+// 	std::cout << "FragTrap" << this->_name<< " is repaired and gets " << amount<< " hit points!" << std::endl;
+// }

@@ -15,7 +15,7 @@ NAME	= a.out
 CC		= c++
 FLAGS	= -Wall -Wextra -Werror -std=c++98
 RM		= rm -rf
-FILES	= main ClapTrap ScavTrap FragTrap
+FILES	= main ClapTrap ScavTrap FragTrap DiamondTrap
 OBJS	= $(FILES:=.o)
 .PHONY: all clean re
 
