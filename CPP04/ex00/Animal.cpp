@@ -10,7 +10,7 @@ Aniaml::Animal(const Animal& obj)
     std::cout << "Copy constructor of Animal called" << std::endl;
 }
 
-Animal& Animal::operator(const Animal& obj)
+Animal& Animal::operator=(const Animal& obj)
 {
     this->type = this->type;
 	std::cout << "Copy assignment operator of Animal called" << std::endl;
