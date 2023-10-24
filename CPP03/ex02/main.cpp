@@ -4,8 +4,8 @@
 
 int	main(void)
 {
-	ScavTrap a("A");
-	FragTrap b("");
+	ScavTrap a;
+	FragTrap b;
 
 	a.attack("B");
 	b.takeDamage(5);

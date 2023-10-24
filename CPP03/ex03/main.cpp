@@ -5,15 +5,17 @@
 
 int	main(void)
 {
-	ScavTrap a("A");
-	DiamondTrap b("");
+	// ScavTrap a("A");
+	DiamondTrap b("A");
 
-	a.attack("B");
-	b.takeDamage(5);
+	// a.attack("B");
+	b.takeDamage(20000);
+	b.beRepaired(1000);
 	b.highFivesGuys();
 	b.attack("A");
-	a.takeDamage(10);
-	a.beRepaired(10);
-	a.showStatus();
+	b.whoAmI();
+	// a.takeDamage(10);
+	// a.beRepaired(10);
+	// a.showStatus();
 	return (0);
 }

@@ -4,7 +4,7 @@
 int	main(void)
 {
 	ScavTrap a("A");
-	ScavTrap b("");
+	ScavTrap b;
 
 	a.attack("B");
 	b.takeDamage(5);
