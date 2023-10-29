@@ -34,3 +34,7 @@ Brain::~Brain()
 {
     std::cout << "<Brain>Destructor called"<< std::endl;
 }
+
+const std::string*	Brain::getIdea(size_t idx) const{
+    return(this->_ideas[idx]);
+}
