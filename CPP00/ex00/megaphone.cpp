@@ -4,6 +4,8 @@
 std::string str_toupper(std::string str)
 {
 	std::locale l = std::locale::classic();
+	// std::cout<<l.name()<<"test\n";
+	//Cロケール
 	for(int i = 0; str[i]; i++)
 		str[i] = std::toupper(str[i], l);
 	return (str);
