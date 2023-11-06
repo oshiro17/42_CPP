@@ -45,9 +45,9 @@ void	PhoneBook::search()
 	}
 	else
 	{
-		std::cout << "\n--------------------------------------------------------------------------------\n";
-		std::cout << "| index | first name | last  name | nickname | phone number | darkest  sercret |\n";
-		std::cout << "---------------------------------------------------------------------------------\n";
+		std::cout << "\n---------------------------------------------\n";
+		std::cout << "| index | first name | last  name | nickname |\n";
+		std::cout << "-----------------------------------------------\n";
 		while (i < 8 && (i < this->_c_num))
 		{
 			this->_contact[i].putContact();
@@ -60,10 +60,14 @@ void	PhoneBook::search()
 	std::cout<<"\n";
 	// 数字以外の値が入力された場合の処理
     std::istringstream iss(input);
-    if (!(iss >> index) || iss.peek() != EOF ||index > 8 || index <= 0 || index > this->_c_num)
+    if (!(iss >> index) || iss.peek() != EOF || index <= 0 || index > this->_c_num)
         std::cout << "wrong input. Please enter a valid index.\n";
+	else if (index >= 9)
+	{
+		this->_contact[(index % 8 )- 1].putContactInfo();
+	}
 	else
-		this->_contact[index - 1].putContactInfo();
+	this->_contact[index - 1].putContactInfo();
 	std::cin.clear();
 	return;
 }

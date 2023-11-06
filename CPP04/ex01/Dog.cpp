@@ -3,6 +3,7 @@
 Dog::Dog(void)
 {
     this->type = "Dog";
+    this->_brain = new Brain();
     std::cout <<"<Dog> Constructor called (" << this->type \
     <<")"<<std::endl;
 }
@@ -25,6 +26,7 @@ Dog& Dog::operator=(const Dog& obj)
         this->type = obj.type;
 	    std::cout <<"<Dog> Copy assignment operator of Dog called(" << this->type \
     <<")"<<std::endl;
+        *this->_brain = *obj._brain;
     }
     return (*this);
 }

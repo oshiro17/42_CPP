@@ -3,6 +3,7 @@
 Cat::Cat(void)
 {
     this->type = "Cat";
+    this->_brain = new Brain();
     std::cout << "<Cat> Constructor called (" << this->type \
     << ")" << std::endl;
 }
@@ -26,6 +27,7 @@ Cat& Cat::operator=(const Cat& obj)
         this->type = obj.type;
 	    std::cout << "<Cat> Copy assignment operator of Cat called(" << this->type \
     <<")"<<std::endl;
+        *this->_brain = *obj._brain;
     }
 	return (*this);
 }
@@ -33,5 +35,6 @@ Cat& Cat::operator=(const Cat& obj)
 void Cat::makeSound()const
 {
 	std::cout << "<Cat> Meow! Meow!(" << this->type \
-    <<")"<<std::endl;
+	<<")"<<std::endl;
 }
+

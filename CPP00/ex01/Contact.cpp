@@ -34,10 +34,8 @@ void	Contact::putContact(void)
 	this->_putTenStr(12, this->_firstName);
 	this->_putTenStr(12, this->_lastName);
 	this->_putTenStr(10, this->_nickname);
-	this->_putTenStr(14, this->_phoneNumber);
-	this->_putTenStr(18, this->_darkestSecret);
 	std::cout<<"\n";
-	std::cout << "---------------------------------------------------------------------------------\n";
+	std::cout << "-----------------------------------------------\n";
 
 }
 
