@@ -1,0 +1,24 @@
+NAME	= Bureaucrat
+	
+CC		= c++
+CXXFLAGS	= -Wall -Wextra -Werror -std=c++98 -MMD -MP
+RM		= rm -rf
+FILES	= main Bureaucrat
+OBJS	= $(FILES:=.o)
+DEPS	= $(FILES:=.d)
+.PHONY: all clean re
+
+all: $(NAME)
+
+$(NAME): $(OBJS)
+	$(CC) $(CXXFLAGS) $(OBJS) -o $(NAME)
+
+clean:
+	$(RM) $(OBJS) $(DEPS)
+
+fclean: clean
+	$(RM) $(NAME)
+
+re: fclean all
+
+-include $(DEPS)
