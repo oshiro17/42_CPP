@@ -2,91 +2,51 @@
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "Intern.hpp"
 #include <iostream>
 
-int main() {
-    try {
-        // Bureaucrats
-        Bureaucrat alice("Alice", 1);
-        Bureaucrat bob("Bob", 50);
-        Bureaucrat charlie("Charlie", 150);
+int main()
+{
+  Intern i1;
+  Intern i2(i1);
+  Intern i3;
+  i3 = i2;
 
-        // Forms
-        ShrubberyCreationForm shrubberyForm("Home");
-        RobotomyRequestForm robotomyForm("Bob");
-        PresidentialPardonForm pardonForm("Alice");
-
-        std::cout << std::endl;
-
-        // Test ShrubberyCreationForm
-        std::cout << "Testing ShrubberyCreationForm:" << std::endl;
-        std::cout << shrubberyForm << std::endl;
-        charlie.signForm(shrubberyForm);
-        charlie.executeForm(shrubberyForm);
-        bob.signForm(shrubberyForm);
-        bob.executeForm(shrubberyForm);
-        std::cout << std::endl;
-
-        // Test RobotomyRequestForm
-        std::cout << "Testing RobotomyRequestForm:" << std::endl;
-        std::cout << robotomyForm << std::endl;
-        bob.signForm(robotomyForm);
-        bob.executeForm(robotomyForm);
-        alice.signForm(robotomyForm);
-        alice.executeForm(robotomyForm);
-        std::cout << std::endl;
-
-        // Test PresidentialPardonForm
-        std::cout << "Testing PresidentialPardonForm:" << std::endl;
-        std::cout << pardonForm << std::endl;
-        alice.signForm(pardonForm);
-        alice.executeForm(pardonForm);
-        bob.signForm(pardonForm);
-        bob.executeForm(pardonForm);
-        std::cout << std::endl;
-    } catch (const std::exception &e) {
-        std::cerr << "Exception: " << e.what() << std::endl;
+  std::string formName1 = "shrubbery creation";
+  std::string formName2 = "robotomy request";
+  std::string formName3 = "presidential pardon";
+  std::string formName4 = "unknown form";
+  std::cout << "Index of " << formName1 << ": " << i1.getFormIdx(formName1) << std::endl;
+  std::cout << "Index of " << formName2 << ": " << i1.getFormIdx(formName2) << std::endl;
+  std::cout << "Index of " << formName3 << ": " << i1.getFormIdx(formName3) << std::endl;
+  std::cout << "Index of " << formName4 << ": " << i1.getFormIdx(formName4) << std::endl;
+  std::cout << std::endl;
+  std::cout << "Index of " << formName1 << ": " << i3.getFormIdx(formName1) << std::endl;
+  std::cout << "Index of " << formName2 << ": " << i3.getFormIdx(formName2) << std::endl;
+  std::cout << "Index of " << formName3 << ": " << i3.getFormIdx(formName3) << std::endl;
+  std::cout << "Index of " << formName4 << ": " << i3.getFormIdx(formName4) << std::endl;
+  std::cout << std::endl;
+  AForm *form1 = i1.makeForm("shrubbery creation", "Home");
+    if (form1) {
+        std::cout << *form1 << std::endl;
+        delete form1;
     }
-        try {
-        // Bureaucrat with too high grade
-        Bureaucrat alice("Alice", 0);
-    } catch (const std::exception &e) {
-        std::cerr << "Exception: " << e.what() << std::endl;
+    AForm *form2 = i1.makeForm("robotomy request", "Bob");
+    if (form2) {
+        std::cout << *form2 << std::endl;
+        delete form2;
     }
-        try {
-        // Bureaucrats
-        Bureaucrat alice("Alice", 1);
-        Bureaucrat charlie("Charlie", 150);
-
-        // Forms
-        ShrubberyCreationForm shrubberyForm("Home");
-
-        std::cout << std::endl;
-
-        // Test ShrubberyCreationForm without signing
-        std::cout << "Testing ShrubberyCreationForm without signing:" << std::endl;
-        charlie.executeForm(shrubberyForm); // ここで例外が発生
-    } catch (const std::exception &e) {
-        std::cerr << "Exception: " << e.what() << std::endl;
+    AForm *form3 = i1.makeForm("presidential pardon", "Alice");
+    if (form3) {
+        std::cout << *form3 << std::endl;
+        delete form3;
     }
-        try {
-        // Bureaucrats
-        Bureaucrat alice("Alice", 1);
-
-        // Forms
-        ShrubberyCreationForm shrubberyForm("/invalid/path/Home"); // ここで例外が発生する可能性
-
-        std::cout << std::endl;
-
-        // Test ShrubberyCreationForm
-        std::cout << "Testing ShrubberyCreationForm:" << std::endl;
-        alice.signForm(shrubberyForm);
-        alice.executeForm(shrubberyForm); 
-    } catch (const std::exception &e) {
-        std::cerr << "Exception: " << e.what() << std::endl;
+    AForm *form4 = i1.makeForm("unknown form", "Unknown");
+    if (form4) {
+        std::cout << *form4 << std::endl;
+        delete form4;
     }
-
-
+    std::cout << std::endl;
 
     return 0;
 }
